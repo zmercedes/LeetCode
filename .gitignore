@@ -1,0 +1,6 @@
+#exes
+*.exe
+
+#sublime project ish
+*.sublime-project
+*.sublime-workspace
