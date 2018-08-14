@@ -3,12 +3,14 @@
  * https://leetcode.com/discuss/interview-question/124571/Character-Array/
  */
 
-#include <iostream>
-#include <vector>
-#include <string>
+#include <iostream> // cout, endl
+#include <vector>	// vector<>
+#include <string>	// string
 
 using namespace std;
 
+// receives two arrays: 
+// if they are of equal length and all indices match, returns true.
 bool ArraysAreEqual(vector<string>& a, vector<string>& b){
 	if(a.size() != b.size())
 		return false;
@@ -21,6 +23,8 @@ bool ArraysAreEqual(vector<string>& a, vector<string>& b){
 	return true;
 }
 
+// receives an array and an index number.
+// if the item at index i is "<", erases item and preceeding item.
 void ArrayPass(vector<string>& a, int& i){
 	if(i < a.size()){
 		if(a[i] == "<"){
@@ -34,6 +38,8 @@ void ArrayPass(vector<string>& a, int& i){
 	}
 }
 
+// receives two arrays and compares them based on their content.
+// if they are both equal after processing, returns true.
 bool ArrayCompare(vector<string>& a, vector<string>& b){
 	if(ArraysAreEqual(a,b))
 		return true;
@@ -50,8 +56,13 @@ bool ArrayCompare(vector<string>& a, vector<string>& b){
 }
 
 int main(){
-	
-	vector<vector<string>> holder = {{"1","2","3","<","<","<","4","<","5"},{"1","2","<","8","<","<","5","5","<"},{"1","2","3","<","4","<","5"},{"1","2"},{"1","2","3","<","4","<"},{"1","2"}};
+
+	vector<vector<string>> holder = {{"1","2","3","<","<","<","4","<","5"},
+									 {"1","2","<","8","<","<","5","5","<"},
+									 {"1","2","3","<","4","<","5"},
+									 {"1","2"},
+									 {"1","2","3","<","4","<"},
+									 {"1","2"}};
 
 	for(int i = 0; i< holder.size();i=i+2){
 		if(ArrayCompare(holder[i], holder[i+1]))
