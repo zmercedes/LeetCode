@@ -10,24 +10,21 @@
 class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
-        if(root == NULL)
-            return {};
         
-        vector<int> result,tmp;
+        vector<int> result;
         
-        if(root->left != NULL){
-            tmp = inorderTraversal(root->left);
-            result.insert(result.end(),tmp.begin(),tmp.end());
-        }
-        
-        result.push_back(root->val);
-        
-        if(root->right != NULL){
-            tmp = inorderTraversal(root->right);
-            result.insert(result.end(),tmp.begin(),tmp.end());
-        }
+        if(root != NULL)
+            tail(root, result);
         
         return result;
+    }
+    
+    void tail(TreeNode* root, vector<int>& res){
+        if(root!=NULL){
+            tail(root->left, res);
+            res.push_back(root->val);
+            tail(root->right, res);
+        }
     }
 };
 
